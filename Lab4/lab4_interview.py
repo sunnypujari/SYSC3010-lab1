@@ -21,7 +21,8 @@ while True:
         # Check if the actionkey (joystick) was pressed
     if event.action == "pressed":
       sense.clear()
-    elif event.action == "pressed":
+  for event in sense.stick.get_events():
+    if event.action == "pressed":
       sense.show_letter("T") 
       sleep(2)
       sense.clear()
