@@ -10,15 +10,11 @@ sense = SenseHat()
 
 
 sense.clear()
-while True:
-  
-  for event in sense.stick.get_events():
-    False
+
 
 while True: 
   for event in sense.stick.get_events():
     # Check if the actionkey (joystick) was pressed
-        # Check if the actionkey (joystick) was pressed
     if event.action == "pressed":
       sense.clear()
   for event in sense.stick.get_events():
@@ -29,4 +25,4 @@ while True:
       sense.show_letter("A") 
       sleep(2)
       sense.clear()
-       # event.action == "pressed"
+      # event.action == "pressed"
