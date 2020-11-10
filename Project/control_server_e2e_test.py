@@ -49,11 +49,13 @@ while (True):
             #determining message response
             
             #for AccessRequest received, requesting door node for temperature measurement
-            if isinstance(message,AccessRequestMessage): 
+            if isinstance(message,AccessRequestMessage):
+		print(f"Received \"{data}\" ({message}) from \"{c.peer_address}\"")
                 resp = InformationRequestMessage(message.transaction_id,InformationType.USER_TEMPERATURE)
             
             #authorizing access if received temperature from InformationResponse is ideal
             elif isinstance(message,InformationResponseMessage):
+		print(f"Received \"{data}\" ({message}) from \"{c.peer_address}\"")
                 if message.type == InformationType.USER_TEMPERATURE:
                     if message.payload.user_temp <= 38.5 and message.payload.user_temp >= 36.5:
 			resp = AccessResponseMessage(message.transaction_id, True) 
